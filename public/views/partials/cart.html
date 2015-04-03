@@ -1,0 +1,51 @@
+<ariane-thread></ariane-thread>
+
+<div class="cart-messages">
+  <p>
+    <i class="icon ion-checkmark"></i>
+    "Lorem ipsum" was successfully added to your shopping cart
+  </p>
+</div>
+
+
+<table class="cart-detail">
+  <thead>
+    <tr>
+      <th scope="col">Product Name</th>
+      <th scope="col">Unit Price</th>
+      <th scope="col">Qty</th>
+      <th scope="col">Subtotal</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="item in items">
+
+      <td class="cart-name-col">
+        <div class="cart-item-img-container">
+          <div class="cart-item-img"></div>
+        </div>
+        <div class="cart-item-name-container">
+          <p class="cart-item-name">{{item.description}}</p>
+        </div>
+        <div class="cart-item-edit-container">
+          <md-button class="cart-item-edit">Edit</md-button>
+        </div>
+      </td>
+      <td class="cart-price-col">{{item.price | currency}}</td>
+      <td class="cart-quantity-col">
+        <input type="number" ng-model="item.quantity">
+      </td>
+      <td class="cart-subtotal-col">{{item.price * item.quantity | currency}}</td>
+      <td class="cart-delete-col">
+        <md-button class="cart-item-delete" ng-click="remove(item.description)">x</md-button>
+        </td
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cart-controls">
+    <md-button class="cart-continue-btn">CONTINUE SHOPPING</md-button>
+    <md-button class="md-warn md-raised cart-update-btn">UPDATE SHOPPING CART</md-button>
+  </div>
